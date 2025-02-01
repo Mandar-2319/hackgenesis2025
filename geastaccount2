@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f7ff, #e3f2fd);
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #007bff, #8e2de2);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        /* Search Section Styles */
+        .search-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+
+        .search-section h2 {
+            margin-top: 0;
+            font-size: 2rem;
+            color: #007bff;
+        }
+
+        .criteria-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .criteria-buttons button {
+            padding: 15px 25px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .criteria-buttons button:hover {
+            background-color: #218838;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #searchForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #searchForm label {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        #searchForm input,
+        #searchForm select {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        #searchForm input:focus,
+        #searchForm select:focus {
+            border-color: #28a745;
+        }
+
+        #searchForm button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #searchForm button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Featured Books Section Styles */
+        .featured-books {
+            margin: 40px 0;
+        }
+
+        .featured-books h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .book-carousel {
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .book-grid {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .book-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .book-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .book-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2rem;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .scroll-left {
+            left: 10px;
+        }
+
+        .scroll-right {
+            right: 10px;
+        }
+
+        /* Recommended Books Section Styles */
+        .recommended-books {
+            margin: 40px 0;
+        }
+
+        .recommended-books h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .book-carousel {
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .book-grid {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .book-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .book-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .book-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2rem;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .scroll-left {
+            left: 10px;
+        }
+
+        .scroll-right {
+            right: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Hide search input when genre is selected */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>LibroZone!</h1>
+            <p>Want to learn, explore, willing to read or confused what to do so?</p>
+            <p>Welcome to our page</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="search-section">
+            <h2>Search Books</h2>
+            <div class="criteria-buttons">
+                <button onclick="showSearchField('author')">Search by Author</button>
+                <button onclick="showSearchField('title')">Search by Title</button>
+                <button onclick="showSearchField('genre')">Search by Genre</button>
+            </div>
+            <form id="searchForm">
+                <label id="searchLabel">Enter Title:</label>
+                <input type="text" id="query" name="query" required>
+                <select id="genreSelect" class="hidden">
+                    <option value="fiction">Fiction</option>
+                    <option value="non-fiction">Non-Fiction</option>
+                    <option value="sci-fi">Sci-Fi</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="romance">Romance</option>
+                    <option value="mystery">Mystery</option>
+                </select>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section class="featured-books">
+            <h2>Featured Books</h2>
+            <div class="book-carousel">
+                <div class="book-grid" id="bookGrid">
+                    <!-- Book Cards -->
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 1</h3>
+                        <p>Author: Author A</p>
+                        <p>Genre: Fiction</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 2</h3>
+                        <p>Author: Author B</p>
+                        <p>Genre: Non-Fiction</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 3</h3>
+                        <p>Author: Author C</p>
+                        <p>Genre: Sci-Fi</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 4</h3>
+                        <p>Author: Author D</p>
+                        <p>Genre: Fantasy</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 5</h3>
+                        <p>Author: Author E</p>
+                        <p>Genre: Romance</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 6</h3>
+                        <p>Author: Author F</p>
+                        <p>Genre: Mystery</p>
+                    </div>
+                </div>
+                <button class="scroll-arrow scroll-left" onclick="scrollBooks('left', 'featured')">&#8592;</button>
+                <button class="scroll-arrow scroll-right" onclick="scrollBooks('right', 'featured')">&#8594;</button>
+            </div>
+        </section>
+
+        <section class="recommended-books">
+            <h2>Recommended Books</h2>
+            <div class="book-carousel">
+                <div class="book-grid" id="recommendedBookGrid">
+                    <!-- Recommended Book Cards -->
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Recommended Book 1</h3>
+                        <p>Author: Author A</p>
+                        <p>Genre: Fiction</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Recommended Book 2</h3>
+                        <p>Author: Author B</p>
+                        <p>Genre: Non-Fiction</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Recommended Book 3</h3>
+                        <p>Author: Author C</p>
+                        <p>Genre: Sci-Fi</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Recommended Book 4</h3>
+                        <p>Author: Author D</p>
+                        <p>Genre: Fantasy</p>
+                    </div>
+                </div>
+                <button class="scroll-arrow scroll-left" onclick="scrollBooks('left', 'recommended')">&#8592;</button>
+                <button class="scroll-arrow scroll-right" onclick="scrollBooks('right', 'recommended')">&#8594;</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LibroZone! All rights reserved.</p>
+    </footer>
+
+    <script>
+        let currentScrollIndex = 0;
+        let currentRecommendedScrollIndex = 0;
+
+        function scrollBooks(direction, section) {
+            let bookGrid;
+            let currentIndex;
+
+            if (section === 'recommended') {
+                bookGrid = document.getElementById('recommendedBookGrid');
+                currentIndex = currentRecommendedScrollIndex;
+            } else {
+                bookGrid = document.getElementById('bookGrid');
+                currentIndex = currentScrollIndex;
+            }
+
+            const bookWidth = document.querySelector('.book-card').offsetWidth + 20; // Width of a book card + gap
+
+            if (direction === 'right' && currentIndex < 3) {
+                currentIndex++;
+            } else if (direction === 'left' && currentIndex > 0) {
+                currentIndex--;
+            }
+
+            bookGrid.style.transform = `translateX(-${bookWidth * currentIndex}px)`;
+
+            if (section === 'recommended') {
+                currentRecommendedScrollIndex = currentIndex;
+            } else {
+                currentScrollIndex = currentIndex;
+            }
+        }
+
+        function showSearchField(criteria) {
+            const searchForm = document.getElementById('searchForm');
+            const searchLabel = document.getElementById('searchLabel');
+            const queryInput = document.getElementById('query');
+            const genreSelect = document.getElementById('genreSelect');
+
+            if (criteria === 'author') {
+                searchLabel.textContent = 'Enter Author:';
+                searchForm.classList.remove('hidden');
+                queryInput.classList.remove('hidden');
+                genreSelect.classList.add('hidden');
+                queryInput.required = true;  // Make title required
+            } else if (criteria === 'title') {
+                searchLabel.textContent = 'Enter Title:';
+                searchForm.classList.remove('hidden');
+                queryInput.classList.remove('hidden');
+                genreSelect.classList.add('hidden');
+                queryInput.required = true;  // Make title required
+            } else {
+                searchForm.classList.add('hidden');
+                genreSelect.classList.remove('hidden');
+                queryInput.required = false; // Make title not required
+            }  
+        }
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        const searchLabel = document.getElementById('searchLabel').textContent;
+        const queryInput = document.getElementById('query').value;
+        const genreSelect = document.getElementById('genreSelect').value;
+
+        if (searchLabel.includes('Author')) {
+            // Redirect to a Google Drive link for author search
+            window.location.href = "https://drive.google.com/author_link?q=" + encodeURIComponent(queryInput);
+        } else if (searchLabel.includes('Title')) {
+            // Redirect to a Google Drive link for title search
+            window.location.href = "https://drive.google.com/title_link?q=" + encodeURIComponent(queryInput);
+        } else {
+            // Redirect to a genre-specific page
+            window.location.href = `genre_pages/${genreSelect}.html`;
+        }
+    });    
+    </script>
+</body>
+</html>
