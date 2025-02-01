@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Library</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2rem;
+        }
+
+        /* Search Section Styles */
+        .search-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+
+        .search-section h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: #007bff;
+        }
+
+        .criteria-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .criteria-buttons button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .criteria-buttons button:hover {
+            background-color: #218838;
+        }
+
+        #searchForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #searchForm label {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        #searchForm input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        #searchForm button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #searchForm button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Featured Books Section Styles */
+        .featured-books {
+            margin: 40px 0;
+        }
+
+        .featured-books h2 {
+            font-size: 1.8rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .book-carousel {
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .book-grid {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .book-card {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: 200px;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .book-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .book-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 2rem;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .scroll-left {
+            left: 10px;
+        }
+
+        .scroll-right {
+            right: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>LibroZone!</h1>
+            <p>Want to learn, explore, willing to read or confused what to do so?</p>
+            <p>Welcome to our page</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="search-section">
+            <h2>Search Books</h2>
+            <div class="criteria-buttons">
+                <button onclick="showSearchField('author')">Search by Author</button>
+                <button onclick="showSearchField('title')">Search by Title</button>
+                <button onclick="showSearchField('genre')">Search by Genre</button>
+            </div>
+            <form id="searchForm" class="hidden">
+                <label id="searchLabel">Enter Author:</label>
+                <input type="text" id="query" name="query" required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section class="featured-books">
+            <h2>Featured Books</h2>
+            <div class="book-carousel">
+                <div class="book-grid" id="bookGrid">
+                    <!-- Book Cards -->
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 1</h3>
+                        <p>Author: Author A</p>
+                        <p>Genre: Fiction</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 2</h3>
+                        <p>Author: Author B</p>
+                        <p>Genre: Non-Fiction</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 3</h3>
+                        <p>Author: Author C</p>
+                        <p>Genre: Sci-Fi</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 4</h3>
+                        <p>Author: Author D</p>
+                        <p>Genre: Fantasy</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 5</h3>
+                        <p>Author: Author E</p>
+                        <p>Genre: Romance</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="https://via.placeholder.com/150" alt="Book Cover">
+                        <h3>Book Title 6</h3>
+                        <p>Author: Author F</p>
+                        <p>Genre: Mystery</p>
+                    </div>
+                </div>
+                <button class="scroll-arrow scroll-left" onclick="scrollBooks('left')">&#8592;</button>
+                <button class="scroll-arrow scroll-right" onclick="scrollBooks('right')">&#8594;</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Digital Library. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSearchField(criteria) {
+            const label = document.getElementById('searchLabel');
+            const form = document.getElementById('searchForm');
+
+            switch (criteria) {
+                case 'author':
+                    label.textContent = 'Enter Author:';
+                    break;
+                case 'title':
+                    label.textContent = 'Enter Title:';
+                    break;
+                case 'genre':
+                    label.textContent = 'Enter Genre:';
+                    break;
+            }
+
+            form.classList.remove('hidden');
+
+            form.onsubmit = function (event) {
+                event.preventDefault();
+                const query = document.getElementById('query').value;
+                window.location.href = `/search?criteria=${criteria}&query=${encodeURIComponent(query)}`;
+            };
+        }
+
+        let currentScrollIndex = 0;
+
+        function scrollBooks(direction) {
+            const bookGrid = document.getElementById('bookGrid');
+            const bookWidth = document.querySelector('.book-card').offsetWidth + 20; // Width of a book card + gap
+
+            if (direction === 'right' && currentScrollIndex < 3) {
+                currentScrollIndex++;
+            } else if (direction === 'left' && currentScrollIndex > 0) {
+                currentScrollIndex--;
+            }
+
+            bookGrid.style.transform = `translateX(-${bookWidth * currentScrollIndex}px)`;
+        }
+    </script>
+</body>
+</html>
