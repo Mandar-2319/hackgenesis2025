@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* White Background */
+            color: black;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            background-color: #3b82f6; /* Medium Blue */
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .book {
+            background-color: #dbeafe; /* Light Blue */
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+        .book:hover {
+            background-color: #bfdbfe; /* Slightly Darker Blue */
+            transform: scale(1.05);
+        }
+        .book img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Genre: History</h1>
+        <div class="book-list">
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/41as+WafrFL.jpg" alt="Sapiens">
+                <strong>Title:</strong> Sapiens <br>
+                <strong>Author:</strong> Yuval Noah Harari
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51Fz+8Gb3mL.jpg" alt="The Silk Roads">
+                <strong>Title:</strong> The Silk Roads <br>
+                <strong>Author:</strong> Peter Frankopan
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51F0F+omRSL.jpg" alt="Guns, Germs, and Steel">
+                <strong>Title:</strong> Guns, Germs, and Steel <br>
+                <strong>Author:</strong> Jared Diamond
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51S6h3sRL+L.jpg" alt="A People's History">
+                <strong>Title:</strong> A People's History of the United States <br>
+                <strong>Author:</strong> Howard Zinn
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51Pjq+BRY0L.jpg" alt="The Wright Brothers">
+                <strong>Title:</strong> The Wright Brothers <br>
+                <strong>Author:</strong> David McCullough
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autobiography Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* White Background */
+            color: black;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            background-color: #3b82f6; /* Medium Blue */
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .book {
+            background-color: #dbeafe; /* Light Blue */
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+        .book:hover {
+            background-color: #bfdbfe; /* Slightly Darker Blue */
+            transform: scale(1.05);
+        }
+        .book img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Genre: Autobiography</h1>
+        <div class="book-list">
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/41x0YF0D5QL.jpg" alt="The Diary of a Young Girl">
+                <strong>Title:</strong> The Diary of a Young Girl <br>
+                <strong>Author:</strong> Anne Frank
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51QZDu+LaGL.jpg" alt="Long Walk to Freedom">
+                <strong>Title:</strong> Long Walk to Freedom <br>
+                <strong>Author:</strong> Nelson Mandela
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51y5zIbdOhL.jpg" alt="The Story of My Experiments with Truth">
+                <strong>Title:</strong> The Story of My Experiments with Truth <br>
+                <strong>Author:</strong> Mahatma Gandhi
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/41rU1X6eYHL.jpg" alt="I Know Why the Caged Bird Sings">
+                <strong>Title:</strong> I Know Why the Caged Bird Sings <br>
+                <strong>Author:</strong> Maya Angelou
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51vqtli9cFL.jpg" alt="Becoming">
+                <strong>Title:</strong> Becoming <br>
+                <strong>Author:</strong> Michelle Obama
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

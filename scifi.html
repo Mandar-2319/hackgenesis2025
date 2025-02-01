@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sci-Fi Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* White Background */
+            color: black;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            background-color: #3b82f6; /* Medium Blue */
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .book {
+            background-color: #dbeafe; /* Light Blue */
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+        .book:hover {
+            background-color: #bfdbfe; /* Slightly Darker Blue */
+            transform: scale(1.05);
+        }
+        .book img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Genre: Sci-Fi</h1>
+        <div class="book-list">
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51sz+TWezHL.jpg" alt="Dune">
+                <strong>Title:</strong> Dune <br>
+                <strong>Author:</strong> Frank Herbert
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/41V8jDt5r3L.jpg" alt="Neuromancer">
+                <strong>Title:</strong> Neuromancer <br>
+                <strong>Author:</strong> William Gibson
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51zJHdDX6sL.jpg" alt="Foundation">
+                <strong>Title:</strong> Foundation <br>
+                <strong>Author:</strong> Isaac Asimov
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51F4x1AYOEL.jpg" alt="The Left Hand of Darkness">
+                <strong>Title:</strong> The Left Hand of Darkness <br>
+                <strong>Author:</strong> Ursula K. Le Guin
+            </a>
+            <a href="https://drive.google.com" target="_blank" class="book">
+                <img src="https://m.media-amazon.com/images/I/51F9cpiAtKL.jpg" alt="The War of the Worlds">
+                <strong>Title:</strong> The War of the Worlds <br>
+                <strong>Author:</strong> H.G. Wells
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
