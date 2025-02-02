@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Library</title>
     <style>
-        
         body {
             font-family: 'Aria ', sans-serif;
             margin: 0;
@@ -20,13 +20,24 @@
             margin: 0 auto;
         }
 
-    
         header {
             background: linear-gradient(135deg, #007bff, #8e2de2);
             color: white;
-            padding: 40px 0;
+            padding: 20px 0;
             text-align: center;
             border-bottom: 2px solid #333;
+            position: relative;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .header-content {
+            flex: 1;
+            padding: 0 20px;
         }
 
         header h1 {
@@ -40,7 +51,26 @@
             font-size: 1.5rem;
         }
 
-        
+        header .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        header .logo img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        header .left-logo {
+            margin-right:
+        }
+
+        header .right-logo {
+            margin-left: 20px;
+        }
+
+
         .search-section {
             background-color: white;
             padding: 30px;
@@ -121,7 +151,7 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
-        
+
         .featured-books {
             margin: 40px 0;
         }
@@ -178,37 +208,7 @@
             color: #666;
         }
 
-        .scroll-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 2rem;
-            border: none;
-            padding: 12px;
-            cursor: pointer;
-            z-index: 2;
-        }
 
-        .scroll-left {
-            left: 10px;
-        }
-
-        .scroll-right {
-            right: 10px;
-        }
-
-        
-        .recommended-books {
-            margin: 40px 0;
-        }
-
-        .recommended-books h2 {
-            font-size: 2rem;
-            color: #007bff;
-            margin-bottom: 20px;
-        }
 
         .book-carousel {
             display: flex;
@@ -256,28 +256,9 @@
             color: #666;
         }
 
-        .scroll-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-size: 2rem;
-            border: none;
-            padding: 12px;
-            cursor: pointer;
-            z-index: 2;
-        }
 
-        .scroll-left {
-            left: 10px;
-        }
 
-        .scroll-right {
-            right: 10px;
-        }
 
-        
         footer {
             background-color: #333;
             color: white;
@@ -291,18 +272,32 @@
             font-size: 1rem;
         }
 
-        
+
         .hidden {
             display: none;
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
-            <h1>LibroZone!</h1>
-            <p>Want to learn, explore, willing to read or confused what to do so?</p>
-            <p>Welcome to our page</p>
+
+            <div class="logo left-logo">
+                <img src="https://www.distillersr.com/wp-content/uploads/2021/03/Education-Reimbursement.png"
+                    alt="Left Logo">
+            </div>
+
+            <div class="header-content">
+                <h1>LibroZone!</h1>
+                <p>Want to learn, explore, willing to read or confused what to do so?</p>
+                <p>Welcome to our page</p>
+            </div>
+
+            <div class="logo right-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/25/Institute_of_Infrastructure_Technology_Research_and_Management_logo.png"
+                    alt="Right Logo">
+            </div>
         </div>
     </header>
 
@@ -324,6 +319,7 @@
                     <option value="fantasy">Fantasy</option>
                     <option value="romance">Romance</option>
                     <option value="religious">Religious</option>
+
                 </select>
                 <button type="submit">Search</button>
             </form>
@@ -333,83 +329,61 @@
             <h2>Featured Books</h2>
             <div class="book-carousel">
                 <div class="book-grid" id="bookGrid">
-                    
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Book Title 1</h3>
-                        <p>Author: Author A</p>
-                        <p>Genre: Fiction</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Book Title 2</h3>
-                        <p>Author: Author B</p>
-                        <p>Genre: Non-Fiction</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Book Title 3</h3>
-                        <p>Author: Author C</p>
-                        <p>Genre: Sci-Fi</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Book Title 4</h3>
-                        <p>Author: Author D</p>
-                        <p>Genre: Fantasy</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Book Title 5</h3>
-                        <p>Author: Author E</p>
-                        <p>Genre: Romance</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Book Title 6</h3>
-                        <p>Author: Author F</p>
-                        <p>Genre: Mystery</p>
-                    </div>
+
+                    <a href="https://drive.google.com/file/d/1Sr0oOX6_-ro2iw_ykFhO3qvnlRyKDb4C/view?usp=drive_link"
+                        class="book-card" target="_blank">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1514686549i/32926179.jpg"
+                            alt="Book Cover">
+                        <h3>Rich Dad Poor Dad</h3>
+                        <p>Author: Robert Kiyosaki and Sharon Lechter
+                            A</p>
+                        <p>Genre: personal finance</p>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1MrG8j_SVws3ei0a-z_Fjz754Fo9RW-nj/view?usp=drive_link"
+                        class="book-card" target="_blank">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1581527774i/41881472.jpg"
+                            alt="Book Cover">
+                        <h3>Psycology of Money</h3>
+                        <p>Author: Morgan Housel B</p>
+                        <p>Genre: Self-Help </p>
+                    </a>
+                    <a href="https://drive.google.com/file/d/10Zg9vBXtjjWMcPX-Ic8o1t6JXZlb6vqe/view?usp=drive_link"
+                        class="book-card" target="_blank">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1655988385i/40121378.jpg"
+                            alt="Book Cover">
+                        <h3>Atomic Habits</h3>
+                        <p>Author: James Clear</p>
+                        <p>Genre: Self help</p>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1hrjn-qfD_c8rzHp5T9aC8wM7XSM4E9Ug/view?usp=drive_link"
+                        class="book-card" target="_blank">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1588286863i/634583.jpg"
+                            alt="Book Cover">
+                        <h3>wings of Fire</h3>
+                        <p>Author: A.P.J Abdul kalam</p>
+                        <p>Genre: autobiography</p>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1pqd0e_ZTOpLIFQCyIoxjqwO9rkSrhcNJ/view?usp=drive_link"
+                        class="book-card" target="_blank">
+                        <img src="https://m.media-amazon.com/images/I/8126p2BWjxL.jpg" alt="Book Cover">
+                        <h3>Diary of a Young girl</h3>
+                        <p>Author: Anne Frank</p>
+                        <p>Genre: personal narrative</p>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1MLKevWugjVc6isg5_yg4reSjbTTi31Uu/view?usp=drive_link"
+                        class="book-card" target="_blank">
+                        <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1701627678i/203150088.jpg"
+                            alt="Book Cover">
+                        <h3>The Art of Laziness</h3>
+                        <p>Author:Simon Vance </p>
+                        <p>Genre: Self Help</p>
+                    </a>
                 </div>
-                <button class="scroll-arrow scroll-left" onclick="scrollBooks('left', 'featured')">&#8592;</button>
-                <button class="scroll-arrow scroll-right" onclick="scrollBooks('right', 'featured')">&#8594;</button>
+
             </div>
         </section>
 
-        <section class="recommended-books">
-            <h2>Recommended Books</h2>
-            <div class="book-carousel">
-                <div class="book-grid" id="recommendedBookGrid">
-                    
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Recommended Book 1</h3>
-                        <p>Author: Author A</p>
-                        <p>Genre: Fiction</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Recommended Book 2</h3>
-                        <p>Author: Author B</p>
-                        <p>Genre: Non-Fiction</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Recommended Book 3</h3>
-                        <p>Author: Author C</p>
-                        <p>Genre: Sci-Fi</p>
-                    </div>
-                    <div class="book-card">
-                        <img src="https://via.placeholder.com/150" alt="Book Cover">
-                        <h3>Recommended Book 4</h3>
-                        <p>Author: Author D</p>
-                        <p>Genre: Fantasy</p>
-                    </div>
-                </div>
-                <button class="scroll-arrow scroll-left" onclick="scrollBooks('left', 'recommended')">&#8592;</button>
-                <button class="scroll-arrow scroll-right" onclick="scrollBooks('right', 'recommended')">&#8594;</button>
-            </div>
-        </section>
+
     </main>
 
     <footer>
@@ -417,79 +391,117 @@
     </footer>
 
     <script>
-        let currentScrollIndex = 0;
-        let currentRecommendedScrollIndex = 0;
 
-        function scrollBooks(direction, section) {
-            let bookGrid;
-            let currentIndex;
+        const BookNames = {
+            "rich dad poor dad": "https://drive.google.com/file/d/1Sr0oOX6_-ro2iw_ykFhO3qvnlRyKDb4C/view?usp=drive_link",
+            "Psycology of Money": "https://drive.google.com/file/d/1MrG8j_SVws3ei0a-z_Fjz754Fo9RW-nj/view?usp=drive_link",
+            "Atomic Habits": "https://drive.google.com/file/d/10Zg9vBXtjjWMcPX-Ic8o1t6JXZlb6vqe/view?usp=drive_link",
+            "wings of Fire": "https://drive.google.com/file/d/1hrjn-qfD_c8rzHp5T9aC8wM7XSM4E9Ug/view?usp=drive_link",
+            "Diary of a Young girl": "https://drive.google.com/file/d/1pqd0e_ZTOpLIFQCyIoxjqwO9rkSrhcNJ/view?usp=drive_link",
+            "The Art of Laziness": "https://drive.google.com/file/d/1MLKevWugjVc6isg5_yg4reSjbTTi31Uu/view?usp=drive_link",
+            "Experiments with the truth": "https://drive.google.com/file/d/19iQ6GJfHqboIJ4UvfvDuXyy2wkqSiwZ-/view?usp=drive_link",
+            "Long walk to freedom": "https://drive.google.com/file/d/1FU8O-6IrWIu2LAmBmIjnbDhpGnhQGHnz/view?usp=drive_link",
+            "playing it my way": "https://drive.google.com/file/d/1NqFBnKdi2iVU6AB99GDMLV3A_DNepvoV/view?usp=drive_link",
+            "The Dairy of a young girl": "https://drive.google.com/file/d/1H8UFJP6jRKecEOSAwwmBGBqKgoxO15uX/view?usp=drive_link",
+            "The race of my life": "https://drive.google.com/file/d/1p4Qq4j9TF5znAoB2XMojh2rLNtQnRYDa/view?usp=drive_link",
+            "Harrypotter": "https://drive.google.com/file/d/1IL-oyHIKImF3Tpte57d26AUnQ2pbYxAb/view?usp=drive_link",
+            "alice in the wonderland": "https://drive.google.com/file/d/1J1Fy7KkS2ZetXDTLzVrKSL8vOeSliJld/view?usp=drive_link",
+            "lord of rings": "https://drive.google.com/file/d/1RX_F6B4B8Qu42wgbCK1KGxCChglpL3u5/view?usp=drive_link",
+            "The adventures of Robin Hood": "https://drive.google.com/file/d/1FGw4PFRuNj2PwXmtSJISHlFQRb3WHA9V/view?usp=drive_link",
+            "Bhagwat gita":"https://drive.google.com/file/d/18HmPKh2Wq7Rm7ThVX_D9L56UIUPI_-WS/view?usp=drive_link",
+            "Bible": "https://drive.google.com/file/d/1_xIuL8xb0Ona4ubT3yYs4kdC8hotICQe/view?usp=drive_link",
+            "Buddha teaching": "https://drive.google.com/file/d/1lcMRB80xZWuuIU_5yWU6CDgACUpVn0_c/view?usp=drive_link",
+            "Quran": "https://drive.google.com/file/d/1AiWcpGG2jaFAxFH5YTAhRhdUfCdrbS2T/view?usp=drive_link",
+            "romeo and juliet": "https://drive.google.com/file/d/1OtAe16hs9ROvcN3ZSHuBqPZVv23fZtPT/view?usp=drive_link",
+            "Brave New World": "https://drive.google.com/file/d/1Kw6pzDql8vdIBUwb4OFpibxyCsFEPSHW/view?usp=drive_link",
+            "The Martian": "https://drive.google.com/file/d/1hfQSSVN7lev7v2-MDM8x7md0eYJJzltj/view?usp=drive_link",
+            
 
-            if (section === 'recommended') {
-                bookGrid = document.getElementById('recommendedBookGrid');
-                currentIndex = currentRecommendedScrollIndex;
-            } else {
-                bookGrid = document.getElementById('bookGrid');
-                currentIndex = currentScrollIndex;
-            }
 
-            const bookWidth = document.querySelector('.book-card').offsetWidth + 20; 
 
-            if (direction === 'right' && currentIndex < 3) {
-                currentIndex++;
-            } else if (direction === 'left' && currentIndex > 0) {
-                currentIndex--;
-            }
-
-            bookGrid.style.transform = `translateX(-${bookWidth * currentIndex}px)`;
-
-            if (section === 'recommended') {
-                currentRecommendedScrollIndex = currentIndex;
-            } else {
-                currentScrollIndex = currentIndex;
-            }
         }
 
         function showSearchField(criteria) {
-    const searchLabel = document.getElementById('searchLabel');
-    const queryInput = document.getElementById('query');
-    const genreSelect = document.getElementById('genreSelect');
+            const searchLabel = document.getElementById('searchLabel');
+            const queryInput = document.getElementById('query');
+            const genreSelect = document.getElementById('genreSelect');
+            const searchButton = document.querySelector('#searchForm button');
 
-    if (criteria === 'author') {
-        searchLabel.textContent = 'Enter Author:';
-        queryInput.classList.remove('hidden');
-        genreSelect.classList.add('hidden');
-        queryInput.required = true;
-    } else if (criteria === 'title') {
-        searchLabel.textContent = 'Enter Title:';
-        queryInput.classList.remove('hidden');
-        genreSelect.classList.add('hidden');
-        queryInput.required = true;
-    } else if (criteria === 'genre') {
-        searchLabel.textContent = 'Select Genre:';
-        queryInput.classList.add('hidden'); 
-        genreSelect.classList.remove('hidden'); 
-        queryInput.required = false; 
-    }
-}
+            if (criteria === 'author') {
+                searchLabel.textContent = 'Search by Author';
+                queryInput.classList.add('hidden');
+                genreSelect.classList.add('hidden');
+                searchButton.textContent = 'Search Author';
+                searchButton.onclick = function () {
+                    window.location.href = "author.html";
+                };
+            } else if (criteria === 'title') {
+                searchLabel.textContent = 'Enter Title:';
+                queryInput.classList.remove('hidden');
+                genreSelect.classList.add('hidden');
+                searchButton.textContent = 'Search Title';
+                searchButton.onclick = function (event) {
+                    event.preventDefault();
+                    const query = queryInput.value;
+                    for (let key in BookNames) {
+                        if (query === key) {
+                            window.location.href = BookNames[key];
+                            break;  // Stop the loop once a match is found
+                        }
+                    }
+                };
+            } else if (criteria === 'genre') {
+                searchLabel.textContent = 'Select Genre:';
+                queryInput.classList.add('hidden');
+                genreSelect.classList.remove('hidden');
+                searchButton.textContent = 'Search Genre';
+                searchButton.onclick = function (event) {
+                    event.preventDefault();
+                    const genreSelectValue = genreSelect.value;
 
-        document.getElementById('searchForm').addEventListener('submit', function(event) {
-        event.preventDefault(); 
-        
-        const searchLabel = document.getElementById('searchLabel').textContent;
-        const queryInput = document.getElementById('query').value;
-        const genreSelect = document.getElementById('genreSelect').value;
 
-        if (searchLabel.includes('Author')) {
-            
-            window.location.href = "https://drive.google.com/drive/u/0/folders/1cMgmjNPyB6aG2AXCxZHrKfL8IyYHqyXt"+"https://drive.google.com/drive/u/0/folders/1xLe4oQyFQQH5D3nlVj9iR-KhnTgoktuT";
-        } else if (searchLabel.includes('Title')) {
-            
-            window.location.href = "https://drive.google.com/title_link?q=" + encodeURIComponent(queryInput);
-        } else {
-            
-            window.location.href = `genre_pages/${genreSelect}.html`;
+                    const genrePages = {
+                        'history': 'history.html',
+                        'autobiography': 'autobiography.html',
+                        'sci-fi': 'scifi.html',
+                        'fantasy': 'fantasy.html',
+                        'romance': 'romance.html',
+                        'religious': 'religious.html'
+                    };
+
+
+                    window.location.href = genrePages[genreSelectValue];
+                };
+            }
         }
-    });    
+
+
+        document.getElementById('searchForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const searchLabel = document.getElementById('searchLabel').textContent;
+            const queryInput = document.getElementById('query').value;
+            const genreSelect = document.getElementById('genreSelect').value;
+
+            if (searchLabel.includes('Author')) {
+                window.location.href = "author.html";
+            } else if (searchLabel.includes('Title')) {
+                window.location.href = "https://drive.google.com/title_link?q=" + encodeURIComponent(queryInput);
+            } else {
+
+                const genrePages = {
+                    'history': 'history.html',
+                    'autobiography': 'autobiography.html',
+                    'scifi': 'scifi.html',
+                    'fantasy': 'fantasy.html',
+                    'romance': 'romance.html',
+                    'religious': 'religious.html'
+                };
+
+                window.location.href = genrePages[genreSelect];
+            }
+        });    
     </script>
 </body>
+
 </html>

@@ -3,86 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Library Login</title>
+    <title>Librozone</title>
     <style>
+       
+        :root {
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --form-background: rgba(255, 255, 255, 0.9);
+            --form-text-color: #2c1810;
+            --button-bg-color: #0073e6;
+            --button-hover-color: #005bb5; 
+        }
+
+       
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://t3.ftcdn.net/jpg/02/44/38/10/360_F_244381089_Nul2GkYc960YgHQD1GmvTaYdZTTeraM4.jpg');
+            background-size: cover;
+            background-position: center;
             height: 100vh;
-            background-color: #112ee9;
+            transition: all 0.5s ease;
+            color: var(--text-color);
         }
-        .login-container {
-            background: rgb(237, 238, 240);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+
+        
+        .welcome-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
-        }
-        .login-container h2 {
-            text-align: center;
-        }
-        .input-group {
-            margin-bottom: 15px;
-        }
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .input-group input {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        .login-btn {
-            width: 100%;
-            padding: 10px;
-            background: #28a745;
-            border: none;
-            color: white;
-            font-size: 16px;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
-        .login-btn:hover {
-            background: #218838;
+
+        .welcome-text {
+            font-size: 4rem;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #87CEEB, #00008B);
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
         }
-        .book-image {
-            width: 100px;
-            height: auto;
-            margin-bottom: 15px;
+
+        .welcome-container:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+       
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--form-background);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 350px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            color: var(--form-text-color);
+        }
+
+        .login-container.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .login-header h2 {
+            color: var(--form-text-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 8px;
+            background: var(--form-background);
+            color: var(--form-text-color);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--button-bg-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        #error-msg {
+            color: red;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-text {
+                font-size: 2.5rem;
+            }
+
+            .login-container {
+                width: 90%;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <img src="book-image" alt="Book" class="book-image">
-        <h2>Login</h2>
+   
+    <div class="welcome-container" onclick="showLogin()">
+        <h1 class="welcome-text">Welcome to Librozone</h1>
+    </div>
+
+   
+    <div class="login-container" id="loginContainer">
+        <div class="login-header">
+            <h2>Librozone Login</h2>
+        </div>
         <form id="loginForm">
-            <div class="input-group">
-                <label for="username">Username</label>
+            <div class="form-group">
+                <label for="username">Username:</label>
                 <input type="text" id="username" required>
             </div>
-            <div class="input-group">
-                <label for="password">Password</label>
+            <div class="form-group">
+                <label for="password">Password:</label>
                 <input type="password" id="password" required>
             </div>
-            <button type="submit" class="login-btn">Login</button>
+            <button type="submit">Login</button>
+            <div id="error-msg">Invalid username or password!</div>
         </form>
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+       
+        function showLogin() {
+            document.querySelector('.welcome-container').style.display = 'none';
+            document.getElementById('loginContainer').classList.add('active');
+        }
+
+       
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            
-            if(username === 'admin' && password === 'password123') {
-                alert('Login successful!');
-                window.location.href = 'dashboard.html';
+
+            if (username === 'guest account' && password === '1234') {
+                alert('Login successful! Redirecting...');
+                
+                window.location.href = 'main.html'; 
             } else {
-                alert('Invalid username or password');
+                document.getElementById('error-msg').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('error-msg').style.display = 'none';
+                }, 3000);
             }
         });
     </script>

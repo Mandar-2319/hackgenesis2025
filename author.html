@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors and Books</title>
+    <style>
+        body {
+            font-family: 'Aria', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f7ff, #e3f2fd);
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007bff, #8e2de2);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        header p {
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .author-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .author-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 200px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .author-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .author-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .author-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .author-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .more-authors-btn {
+            display: block;
+            background-color: #007bff;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 40px auto;
+            width: 200px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .more-authors-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .book-carousel {
+            margin: 40px 0;
+        }
+
+        .book-carousel h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .book-grid {
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .book-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: 200px;
+            box-sizing: border-box;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .book-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .book-card p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>LibroZone Authors</h1>
+            <p>Explore a list of amazing authors and their books</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="author-list">
+            <div class="author-card" onclick="showBooks('author1')">
+                <img src="https://cdn.britannica.com/49/134949-050-242B08C7/Rabindranath-Tagore.jpg" alt="Author Image">
+                <h3>Rabindranath Tagore</h3>
+                <p>Famous for their Fiction works</p>
+            </div>
+            <div class="author-card" onclick="showBooks('author2')">
+                <img src="https://static.wixstatic.com/media/a018cd_296ec44767e442ddaf044ce8fa3cedb9~mv2.jpg/v1/fill/w_568,h_596,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a018cd_296ec44767e442ddaf044ce8fa3cedb9~mv2.jpg" alt="Author Image">
+                <h3>Ruskin Bond</h3>
+                <p>Known for their short stories and nature writings</p>
+            </div>
+            <div class="author-card" onclick="showBooks('author3')">
+                <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQRZEvYINY5819dlhA9B05OX1MkObf6qqCiRNDCl6YK_SqP6wrZQRW-56DAtpSdQqhcqiItrOrhFwueksZ3hRKvxxlYOiPc54lPFrLrKA" alt="Author Image">
+                <h3>J. K. Rowling</h3>
+                <p>Creator of popular work- 'Harry Potter'</p>
+            </div>
+            <div class="author-card" onclick="showBooks('author4')">
+                <img src="https://static.toiimg.com/photo/94764987/94764987.jpg" alt="Author Image">
+                <h3>R. K. Narayan</h3>
+                <p>Master of fiction and cultural commentry</p>
+            </div>
+
+            <div class="author-card" onclick="showBooks('author5')">
+                <img src="https://etimg.etb2bimg.com/photo/92912748.cms" alt="Author Image">
+                <h3>Chetan Bhagat</h3>
+                <p>Prolific in Romance and Fiction</p>
+            </div>
+        </section>
+        <a href="https://drive.google.com/drive/folders/1cMgmjNPyB6aG2AXCxZHrKfL8IyYHqyXt?usp=sharing" class="more-authors-btn" target="_blank">More Authors</a>
+
+        <section id="booksSection" class="book-carousel hidden">
+            <h2>Books by Selected Author</h2>
+            <div class="book-grid" id="bookGrid"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LibroZone! All rights reserved.</p>
+    </footer>
+
+    <script>
+        let currentScrollIndex = 0;
+
+        const booksData = {
+            author1: [
+                { title: 'My Boyhood Days', genre: 'Fiction', image: 'https://m.media-amazon.com/images/I/51zC30BGZsL.jpg', driveLink: 'https://drive.google.com/file/d/1_NrXXaFg836NWJ7v_sEJA9C7jW7K3lV_/view?usp=drive_link' },
+                { title: 'Gitanjali', genre: 'History', image: 'https://5.imimg.com/data5/SELLER/Default/2022/8/OI/AX/LH/102219529/gitanjali-1000x1000.jpg', driveLink: 'https://drive.google.com/file/d/1w2kCtKZLa5oskaBYQ08BdCuDIYI9MDpT/view?usp=drive_link' },
+            ],
+            author2: [
+                { title: 'Immortal stories ', genre: 'Fiction', image: 'https://m.media-amazon.com/images/I/81mmeCpjtSL.SL1500.jpg', driveLink: 'https://drive.google.com/file/d/1aArMOh39WgzFSJXQAFO5BJp8QToWcQ66/view?usp=drive_link' },
+                { title: 'The blue umbrella ', genre: 'Story', image: 'https://1.bp.blogspot.com/-RivqYxRBJBM/YDEOC95WooI/AAAAAAAAELE/T2WHqmZZ5UAhBheUj9ujHWsR032ft8P2wCLcBGAsYHQ/s600/The-Blue-Umbrella-by-Ruskin-Bond.jpg', driveLink: 'https://drive.google.com/file/d/1Up6WxHxGBKLx_eY4lXEdAptrfeYz4UKB/view?usp=drive_link' },
+                { title: 'the essential collection for young readers', genre: 'Fiction', image: 'https://th.bing.com/th/id/R.94d01d6cfd82d92cfb53e81ff85e3991?rik=IuAj96TnKzCzAg&riu=http%3a%2f%2fprodimage.images-bn.com%2fpimages%2f9788129137005_p0_v1_s1200x630.jpg&ehk=Q%2f6B4VdxuiRipGvxVlI%2f5QnGBIzK6hZW7YuqaRqihH0%3d&risl=&pid=ImgRaw&r=0', driveLink: 'https://drive.google.com/file/d/1uC2nDNT5AT_Uz7-5Ao3VfmVQo9ykBdd2/view?usp=drive_link' }
+            ],
+            
+            author3: [
+                { title: 'The Cuckoos Calling', genre: 'Fantacy', image: 'https://th.bing.com/th/id/R.5e898a5871f43eca569f795905659389?rik=fD0fP5Rzqf8GsA&riu=http%3a%2f%2fwww.socialbookshelves.com%2fwp-content%2fuploads%2f2014%2f05%2fthe-cuckoos-calling-robert-galbraith-jk-rowling_1.jpg&ehk=W2Jkplfx%2bVGNga1ZrjNGbmt4CB2fpCqIZ3SgOXMUcig%3d&risl=&pid=ImgRaw&r=0', driveLink: 'https://drive.google.com/file/d/15-3l5kQcYPh9-HU9eu6v42B7G-bZ8oSO/view?usp=drive_link' },
+                { title: 'The Running Grave ', genre: 'Fantacy', image: 'https://upload.wikimedia.org/wikipedia/en/2/26/The_Running_Grave_book_cover.jpg', driveLink: 'https://drive.google.com/file/d/1BlJ_4CMIQubuLUi35JhkoL_oimyN42qa/view?usp=drive_link' }
+            ],
+            author4: [
+                { title: 'Malgudi Days', genre: 'Fantacy', image: 'https://th.bing.com/th/id/OIP.4of0lMLKX04xTb8DZ-Ny7AAAAA?rs=1&pid=ImgDetMain', driveLink: 'https://drive.google.com/file/d/1v7lKmSHTaKSJ8V-xhhwJqKEUUcKq2SKZ/view?usp=drive_link' },
+                { title: 'A Tiger for Malgudi', genre: 'Fantacy', image: 'https://i2.wp.com/www.literaryretreat.com/wp-content/uploads/2017/12/A-Tiger-for-Malgudi-Cover.jpg?w=260&ssl=1', driveLink: 'https://drive.google.com/file/d/1-ukPDJY4YJXACJEZCi2fdaNM8ZJel060/view?usp=drive_link' }
+            ],
+            author5: [
+                { title: '2 states', genre: 'Romance novel', image: 'https://m.media-amazon.com/images/I/81ApqY6HZlL.jpg', driveLink: 'https://drive.google.com/file/d/13xk5VCJHVZGC6ZF65faYYWpMEhZIBlk6/view?usp=drive_link' },
+                { title: '3 mistakes of my life', genre: 'Fiction', image: 'https://files.cdn-files-a.com/uploads/4624183/2000_60fd2a5816f27.jpg', driveLink: 'https://drive.google.com/file/d/10YusUuytoaWvB96kXLJwnr9YAwZT-krQ/view?usp=drive_link' },
+                { title: 'What young India wants', genre: 'Non Fiction', image: 'https://upload.wikimedia.org/wikipedia/en/f/f4/What_Young_India_Wants.jpeg', driveLink: 'https://drive.google.com/file/d/1yk_4aCKDb4Nd6_el5aiSJWMQVvHayFNw/view?usp=drive_link' }
+                
+            ]
+        };
+        
+
+        function showBooks(author) {
+            const booksSection = document.getElementById('booksSection');
+            const bookGrid = document.getElementById('bookGrid');
+            booksSection.classList.remove('hidden');
+            currentScrollIndex = 0;
+
+            bookGrid.innerHTML = '';
+            booksData[author].forEach(book => {
+                const bookCard = `
+                    <div class="book-card" onclick="window.location.href='${book.driveLink}'">
+                        <img src="${book.image}" alt="Book Cover">
+                        <h3>${book.title}</h3>
+                        <p>Genre: ${book.genre}</p>
+                    </div>
+                `;
+                bookGrid.innerHTML += bookCard;
+            });
+        }
+    </script>
+</body>
+</html>
